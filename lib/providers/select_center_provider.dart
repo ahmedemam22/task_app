@@ -6,14 +6,18 @@ import 'package:taskapp/network/constant.dart';
 
 class SelectCenterProvider extends ChangeNotifier{
   UserResponse user;
-CenterModel _items=CenterModel(name: 'assets/images/diving_center.jpg',
-    max_depth: "25m",site_type: "Wreck",dive_entry: "Shore Dive",visibility: "15m",centers: []);
+CenterModel _items=CenterModel(centers: []);
 CenterModel get items=>_items;
 add_center(){
+  if(_items.name==null){
+
+   _items= CenterModel(name: 'assets/images/diving_center.jpg',
+        max_depth: "25m",site_type: "Wreck",dive_entry: "Shore Dive",visibility: "15m",centers: []);
+  }
   _items.centers.add("Dive A${_items.centers.length+1}");
   notifyListeners();
 }
-remove_center(int index){
+remove_center_item(int index){
   _items.centers.removeAt(index);
   notifyListeners();
 }
@@ -26,6 +30,11 @@ Future get_user(String id)async{
   finally{
     notifyListeners();
   }
+
+}
+remove_center(){
+  _items=CenterModel(centers: []);
+  notifyListeners();
 
 }
 }

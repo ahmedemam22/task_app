@@ -35,7 +35,11 @@ bottom_sheet_shape(BuildContext context) {
                 ],
               ),
               SizedBox(height: 5,),
-              details(),
+              Row(
+                children: [
+                  details(),
+                ],
+              ),
               Column(
                 children:List.generate(Provider.of<SelectCenterProvider>(context,listen: false).items.centers.length, (index) => gray_container(index,context))
                   ,
@@ -155,7 +159,7 @@ Widget gray_container(index,context){
           air_mix(),
           air_mix(),
           GestureDetector(
-            onTap: ()=>Provider.of<SelectCenterProvider>(context,listen: false).remove_center(index),
+            onTap: ()=>Provider.of<SelectCenterProvider>(context,listen: false).remove_center_item(index),
             child: Container(
               color: white,
               height: 20,

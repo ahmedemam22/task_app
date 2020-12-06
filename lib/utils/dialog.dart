@@ -13,7 +13,7 @@ import 'package:taskapp/widget/details.dart';
 
  FN_showDetails_Dialog_qrcode(BuildContext context) async {
   final provider= Provider.of<SelectCenterProvider>(context,listen: false);
- List<String> center_items=provider.items.centers;
+ //List<String> center_items=provider.items.centers;
   return (await showAnimatedDialog(
       animationType: DialogTransitionType.size,
       barrierDismissible:true,

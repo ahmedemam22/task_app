@@ -35,7 +35,7 @@ class LocationView extends StatelessWidget {
                 topLeft: const Radius.circular(18.0),
                 topRight: const Radius.circular(18.0),
               ),       panelBuilder: (sc) =>
-                data.items==null?Padding(
+                data.items.name==null?Padding(
                   padding: PADDING_symmetric(verticalFactor: 2),
                   child: Text("No Result",textAlign: TextAlign.center,style: TX_STYLE_black_14Point5,),
                 ):
