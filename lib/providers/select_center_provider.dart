@@ -19,7 +19,7 @@ remove_center(int index){
 }
 Future get_user(String id)async{
   try{var response=await api.get(BASE_URL+USER+id);
-  user=await UserResponse.fromJson(response);}
+  user= UserResponse.fromJson(response);}
   catch(e){
     print("Error::${e}");
   }
