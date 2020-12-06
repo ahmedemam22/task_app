@@ -1,2 +1,2 @@
 const BASE_URL = "https://jsonplaceholder.typicode.com/";
-const USER = "todo/";
+const USER = "todos/";
