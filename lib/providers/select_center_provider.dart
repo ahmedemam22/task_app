@@ -8,6 +8,8 @@ class SelectCenterProvider extends ChangeNotifier{
   UserResponse user;
 CenterModel _items=CenterModel(centers: []);
 CenterModel get items=>_items;
+bool _wait_get_user=false;
+bool get wait_get_user=>_wait_get_user;
 add_center(){
   if(_items.name==null){
 
@@ -21,20 +23,25 @@ remove_center_item(int index){
   _items.centers.removeAt(index);
   notifyListeners();
 }
-Future get_user(String id)async{
-  try{var response=await api.get(BASE_URL+USER+id);
-  user= UserResponse.fromJson(response);}
-  catch(e){
-    print("Error::${e}");
-  }
-  finally{
-    notifyListeners();
-  }
 
-}
 remove_center(){
   _items=CenterModel(centers: []);
   notifyListeners();
 
 }
+  Future get_user(String id)async{
+  _wait_get_user=true;
+  notifyListeners();
+    try{var response=await api.get(BASE_URL+USER+id);
+    user= UserResponse.fromJson(response);}
+    catch(e){
+      print("Error::${e}");
+    }
+
+    finally{
+      _wait_get_user=false;
+      notifyListeners();
+    }
+
+  }
 }

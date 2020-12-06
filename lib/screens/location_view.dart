@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:taskapp/providers/select_center_provider.dart';
-import 'package:taskapp/utils/bottom_sheet.dart';
 import 'package:taskapp/utils/color.dart';
 import 'package:taskapp/utils/dialog.dart';
 import 'package:taskapp/utils/my_padding.dart';
 import 'package:taskapp/utils/size_config.dart';
 import 'package:taskapp/utils/text_style.dart';
+import 'package:taskapp/widget/center_shape.dart';
 
 
 class LocationView extends StatelessWidget {
@@ -45,7 +45,7 @@ class LocationView extends StatelessWidget {
                     children: [
 
 
-                bottom_sheet_shape(context)
+                CenterShape()
 
             ]),
 
